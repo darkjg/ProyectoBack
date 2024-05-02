@@ -3,8 +3,10 @@ const session = require("express-session");
 const app = express();
 const cors = require("cors");
 const { dbConnection } = require("./Config/db");
-const PORT = 3000;
+
 const ProductosRoutes = require("./routes/productoRoutes");
+require("dotenv").config( {path:path.resolve( ".env")} );
+const PORT = process.env.PORT ||3000;
 app.use(cors());
 
 app.use(
